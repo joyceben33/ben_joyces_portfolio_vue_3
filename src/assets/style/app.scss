@@ -1,0 +1,65 @@
+
+// Headings
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+h2 {
+  font-family: 'Poppins', serif;
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+//Buttons
+#contact {
+  .v-btn {
+    background-color: #3f51b5;
+    color: #eeeeee !important;
+  }
+  .v-btn:hover {
+    color: #ffffff !important;
+  }
+}
+
+a {
+  font-family: 'Poppins', serif;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+
+
+// Page Sections
+section {
+  padding: 1.5rem 0;
+  &:nth-child(2n + 1) {
+    background-color: #fafafa;
+  }
+  &.hero {
+    padding-top: calc(7rem + 96px);
+    color: #ffffff;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+  .vue-typer {
+    font-size: 2.75rem;
+  }
+  section {
+    padding: 7rem 0;
+  }
+}

@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import './style.css';
+import './assets/style/app.scss';
 import App from './App.vue';
 
 // Vuetify
@@ -8,6 +8,9 @@ import { createVuetify } from 'vuetify';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
+
+// Vue Router
+import router from './router';
 
 const vuetify = createVuetify({
   components,
@@ -21,4 +24,4 @@ const vuetify = createVuetify({
   },
 });
 
-createApp(App).use(vuetify).mount('#app');
+createApp(App).use(vuetify).use(router).mount('#app');
