@@ -1,3 +1,5 @@
+@import 'vue3-typer/dist/vue-typer.css';
+@import '@/assets/style/variables.scss';
 
 // Headings
 h1 {
@@ -38,8 +40,6 @@ p {
   padding-right: 32px;
 }
 
-
-
 // Page Sections
 section {
   padding: 1.5rem 0;
@@ -61,5 +61,46 @@ section {
   }
   section {
     padding: 7rem 0;
+  }
+}
+
+/* SCSS */
+.vue-typer {
+  /* Styles for the vue-typer container
+     e.g. font-family, font-size  */
+  line-height: 1;
+  padding-top: 10px;
+  display: inline-block;
+
+  .custom.char {
+    /* Styles for each character
+       e.g. color, background-color */
+    color: #8c9eff;
+
+    &.typed {
+      /* Styles specific to typed characters
+         i.e. characters to the left of the caret */
+      color: #8c9eff;
+    }
+
+    &.selected {
+      /* Styles specific to selected characters
+         i.e. characters to the right of the caret while VueTyper's
+              'eraseStyle' is set to a selection-based style */
+    }
+
+    &.erased {
+      /* Styles specific to erased characters
+         i.e. characters to the right of the caret while VueTyper's
+              'eraseStyle' is set to a non-selection-based style */
+    }
+  }
+
+  .custom.caret {
+    height: 2rem;
+    background-color: #8c9eff;
+    width: 6px;
+    border-radius: 5px;
+    margin-left: 5px;
   }
 }

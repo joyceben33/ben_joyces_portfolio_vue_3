@@ -6,8 +6,8 @@
                     <h2>About Me</h2>
                 </v-col>
             </v-row>
-            <v-row justify="center">
-                <v-col cols="7">
+            <v-row justify="center" align="center">
+                <v-col cols="12" md="7">
                     <p>
                         I'm a Full Stack Developer with over 3 years of programming experience, having worked on
                         multiple production
@@ -24,8 +24,8 @@
                         weight training, & watching / attending NC State Athletic Events.
                     </p>
                 </v-col>
-                <v-col cols="5">
-                    <v-img id="about-profile-img" :src="ProfileImage"></v-img>
+                <v-col cols="12" md="5">
+                    <v-img id="about-profile-img" :src="ProfileImage" width="300" ></v-img>
                 </v-col>
             </v-row>
         </v-container>
@@ -38,7 +38,6 @@ import ProfileImage from '@/assets/profile_black_and_white.jpg'
 <style lang="scss" scoped>
 #about-profile-img {
     border-radius: 50%;
-    max-width: "100px" !important;
 }
 
 .myBio {

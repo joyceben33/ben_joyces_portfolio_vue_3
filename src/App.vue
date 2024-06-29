@@ -1,5 +1,6 @@
 <template>
-  <v-app class="no-scroll">
+  <v-app>
+    <Header />
     <v-main>
       <RouterView />
     </v-main>
@@ -10,8 +11,4 @@
 import Header from './components/layout/Header.vue'
 </script>
 
-<style scoped>
-.no-scroll {
-  overflow-x: hidden;
-}
-</style>
+<style scoped></style>
