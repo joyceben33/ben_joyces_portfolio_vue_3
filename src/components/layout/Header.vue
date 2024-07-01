@@ -15,22 +15,12 @@
     </v-app-bar>
     <v-navigation-drawer v-model="mobileDrawer" width="300" fixed temporary>
       <v-list>
-        <v-list-item prepend-icon="mdi-account" title="About Me" @click="scrollTo('about-me')">
-          <!-- <v-list-item-icon>
-            <v-icon>{{ 'mdi-account' }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>About Me</v-list-item-title>
-          </v-list-item-content> -->
-        </v-list-item>
-        <!-- TODO: https://v2.vuetifyjs.com/en/components/lists/#sub-group -->
+        <v-list-item prepend-icon="mdi-account" title="About Me" @click="scrollTo('about-me')"></v-list-item>
 
-        <v-list-group title="Experience" prepend-icon="mdi-domain">
-          <!-- <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title>Experience</v-list-item-title>
-            </v-list-item-content>
-          </template> -->
+        <v-list-group value="Experience">
+          <template v-slot:activator="{ props }">
+            <v-list-item title="Experience" prepend-icon="mdi-domain" v-bind="props"> </v-list-item>
+          </template>
           <v-list-item
             v-for="projectLink in projectLinks"
             :key="projectLink.name"
@@ -40,7 +30,7 @@
           </v-list-item>
         </v-list-group>
 
-        <v-list-item prepend-icon="mdi-account-group" title="Social" @click="scrollTo('social-media')"> </v-list-item>
+        <v-list-item prepend-icon="mdi-account-group" title="Social" @click="scrollTo('social-media')"></v-list-item>
       </v-list>
     </v-navigation-drawer>
   </div>
