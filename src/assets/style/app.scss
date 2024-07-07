@@ -1,7 +1,11 @@
+@import '../fonts/fonts.css';
 @import 'vue3-typer/dist/vue-typer.css';
 @import './variables.scss';
+
+// TODO: Create font-face references to local font files
+
 // Headings
-h1 {
+h1:not(#profile-name) {
   // font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
