@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <v-app-bar class="py-1 px-4" app color="primary" scroll-behavior="elevate" height="85">
+    <v-app-bar class="py-1 px-4" app color="surface" scroll-behavior="elevate" height="85">
       <v-app-bar-nav-icon default="mdiMenu" @click.stop="toggleMobileDrawer()"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
 
@@ -31,6 +31,25 @@
         </v-list-group>
 
         <v-list-item prepend-icon="mdi-account-group" title="Social" @click="scrollTo('social-media')"></v-list-item>
+        <v-list-group value="Settings">
+          <template v-slot:activator="{ props }">
+            <v-list-item title="Settings" prepend-icon="mdi-cog" v-bind="props"> </v-list-item>
+          </template>
+          <v-list-item>
+            <v-list-item-action class="d-flex justify-space-between align-center pr-3">
+              <v-list-item-title>
+                <v-icon :icon="darkMode ? 'mdi-weather-night' : 'mdi-white-balance-sunny'"></v-icon>
+                &nbsp; Mode
+              </v-list-item-title>
+              <v-switch
+                class="d-flex align-center"
+                v-model="darkMode"
+                color="primary"
+                @update:model-value="toggleTheme"
+              ></v-switch>
+            </v-list-item-action>
+          </v-list-item>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
   </div>
@@ -41,7 +60,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import ProfileImage from '@/assets/profile_black_and_white.jpg';
 // https://github.com/vuetifyjs/vuetify/issues/9648
-import { useGoTo } from 'vuetify';
+import { useGoTo, useTheme } from 'vuetify';
 
 type ProjectLink = {
   name: string;
@@ -50,8 +69,15 @@ type ProjectLink = {
 
 const router = useRouter();
 const route = useRoute();
+const theme = useTheme();
 
 const mobileDrawer = ref<boolean | null>(null);
+
+const darkMode = ref<boolean | null>(null);
+
+function toggleTheme() {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+}
 
 const projectLinks = ref<ProjectLink[]>([
   { name: 'LASSO', scrollHash: 'lasso' },
@@ -91,9 +117,11 @@ const handleScroll = () => {
   });
 };
 
-// onMounted(() => {
-//   window.addEventListener('scroll', handleScroll);
-// })
+onMounted(() => {
+  darkMode.value = theme.global.name.value === 'darkTheme' ? true : false;
+
+  // window.addEventListener('scroll', handleScroll);
+});
 
 // onUnmounted(() => {
 //   window.removeEventListener('scroll', handleScroll);

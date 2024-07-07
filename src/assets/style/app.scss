@@ -1,38 +1,18 @@
 @import 'vue3-typer/dist/vue-typer.css';
-@import '@/assets/style/variables.scss';
-
+@import './variables.scss';
 // Headings
 h1 {
-  font-family: 'Poppins', sans-serif;
+  // font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
   line-height: 1.25;
 }
 
 h2 {
-  font-family: 'Poppins', serif;
+  // font-family: 'Poppins', serif;
   font-size: 2.75rem;
   margin-bottom: 1rem;
   line-height: 1.25;
-}
-
-//Buttons
-#contact {
-  .v-btn {
-    background-color: #3f51b5;
-    color: #eeeeee !important;
-  }
-  .v-btn:hover {
-    color: #ffffff !important;
-  }
-}
-
-a {
-  font-family: 'Poppins', serif;
-}
-
-p {
-  font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -64,6 +44,7 @@ section {
   }
 }
 
+// NOTE: Docs https://github.com/codespikex/vue3-typer
 /* SCSS */
 .vue-typer {
   /* Styles for the vue-typer container
@@ -72,7 +53,7 @@ section {
   padding-top: 10px;
   display: inline-block;
 
-  .custom.char {
+  .char {
     /* Styles for each character
        e.g. color, background-color */
     color: #8c9eff;
@@ -83,24 +64,24 @@ section {
       color: #8c9eff;
     }
 
-    &.selected {
-      /* Styles specific to selected characters
-         i.e. characters to the right of the caret while VueTyper's
-              'eraseStyle' is set to a selection-based style */
-    }
+    // &.selected {
+    //   /* Styles specific to selected characters
+    //      i.e. characters to the right of the caret while VueTyper's
+    //           'eraseStyle' is set to a selection-based style */
+    // }
 
-    &.erased {
-      /* Styles specific to erased characters
-         i.e. characters to the right of the caret while VueTyper's
-              'eraseStyle' is set to a non-selection-based style */
-    }
+    // &.erased {
+    //   /* Styles specific to erased characters
+    //      i.e. characters to the right of the caret while VueTyper's
+    //           'eraseStyle' is set to a non-selection-based style */
+    // }
   }
 
-  .custom.caret {
-    height: 2rem;
-    background-color: #8c9eff;
-    width: 6px;
-    border-radius: 5px;
-    margin-left: 5px;
+  .caret {
+    height: 3rem !important;
+    background-color: #8c9eff !important;
+    width: 6px !important;
+    border-radius: 5px !important;
+    margin-left: 5px !important;
   }
 }
