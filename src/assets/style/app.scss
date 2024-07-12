@@ -18,11 +18,6 @@ h2 {
   line-height: 1.25;
 }
 
-.container {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
 //NOTE: Allows Button to Glow On Hover
 a,
 button {
@@ -35,24 +30,34 @@ button {
   }
 }
 
-// Page Sections
-section {
-  padding: 1.5rem 0;
-  &:nth-child(2n + 1) {
-    background-color: if(
-      var(--v-theme-dark) == true,
-      var(--theme-background-lighten-2),
-      var(--theme-background-darken-2)
-    );
-  }
-  // &.hero {
-  //   padding-top: calc(7rem + 96px);
-  //   color: #ffffff;
-  // }
+.v-container {
+  max-width: 1200px !important;
 }
+
+// Page Sections
+// section {
+//   padding: 1.5rem 0;
+//   &:nth-child(2n + 1) {
+//     background-color: if(
+//       var(--v-theme-dark) == true,
+//       var(--v-theme-background-lighten-2),
+//       var(--v-theme-background-darken-2)
+//     );
+//   }
+//   // &.hero {
+//   //   padding-top: calc(7rem + 96px);
+//   //   color: #ffffff;
+//   // }
+// }
 
 // section {
 //   background-color: rgb(var(--v-theme-background)) !important;
+// }
+
+// @media (min-width: 1904px) {
+//   .v-container {
+
+//   }
 // }
 
 @media screen and (min-width: 960px) {
@@ -79,12 +84,12 @@ section {
   .char {
     /* Styles for each character
        e.g. color, background-color */
-    color: #8c9eff;
+    color: rgb(var(--v-theme-accent));
 
     &.typed {
       /* Styles specific to typed characters
          i.e. characters to the left of the caret */
-      color: #8c9eff;
+      color: rgb(var(--v-theme-accent));
     }
 
     // &.selected {
@@ -102,7 +107,7 @@ section {
 
   .caret {
     height: 3rem !important;
-    background-color: #8c9eff !important;
+    background-color: rgb(var(--v-theme-accent)) !important;
     width: 6px !important;
     border-radius: 5px !important;
     margin-left: 5px !important;

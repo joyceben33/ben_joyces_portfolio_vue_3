@@ -17,7 +17,9 @@
       <v-list>
         <v-list-item prepend-icon="mdi-account" title="About Me" @click="scrollTo('about-me')"></v-list-item>
 
-        <v-list-group value="Experience">
+        <v-list-item prepend-icon="mdi-domain" title="Experience" @click="scrollTo('experience')"></v-list-item>
+
+        <!-- <v-list-group value="Experience">
           <template v-slot:activator="{ props }">
             <v-list-item title="Experience" prepend-icon="mdi-domain" v-bind="props"> </v-list-item>
           </template>
@@ -28,7 +30,7 @@
             :title="projectLink.name"
           >
           </v-list-item>
-        </v-list-group>
+        </v-list-group> -->
 
         <v-list-item prepend-icon="mdi-account-group" title="Social" @click="scrollTo('social-media')"></v-list-item>
         <v-list-group value="Settings">

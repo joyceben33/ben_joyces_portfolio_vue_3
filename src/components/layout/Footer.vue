@@ -3,13 +3,27 @@
     <v-container>
       <!-- Social Media Icons -->
       <div class="d-flex justify-center mb-2">
-        <v-btn flat icon target="_blank" href="https://github.com/joyceben33" class="mx-1">
+        <v-btn color="background" flat icon target="_blank" href="https://github.com/joyceben33" class="mx-1">
           <CustomSimpleIcon :icon="siGithub" />
         </v-btn>
-        <v-btn flat icon target="_blank" href="https://www.linkedin.com/in/ben-marlow-joyce/" class="mx-1">
+        <v-btn
+          color="background"
+          flat
+          icon
+          target="_blank"
+          href="https://www.linkedin.com/in/ben-marlow-joyce/"
+          class="mx-1"
+        >
           <CustomSimpleIcon :icon="siLinkedin" />
         </v-btn>
-        <v-btn flat icon target="_blank" href="https://www.facebook.com/ben.joyce.3363/" class="mx-1">
+        <v-btn
+          color="background"
+          flat
+          icon
+          target="_blank"
+          href="https://www.facebook.com/ben.joyce.3363/"
+          class="mx-1"
+        >
           <CustomSimpleIcon :icon="siFacebook" />
         </v-btn>
       </div>
