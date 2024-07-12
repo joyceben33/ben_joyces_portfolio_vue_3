@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <v-app-bar class="py-1 px-4" app color="surface" scroll-behavior="elevate" height="85">
+    <v-app-bar class="py-1 px-4" app color="background" scroll-behavior="elevate" height="85">
       <v-app-bar-nav-icon default="mdiMenu" @click.stop="toggleMobileDrawer()"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
 
@@ -118,7 +118,7 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  darkMode.value = theme.global.name.value === 'darkTheme' ? true : false;
+  darkMode.value = theme.global.name.value === 'dark' ? true : false;
 
   // window.addEventListener('scroll', handleScroll);
 });

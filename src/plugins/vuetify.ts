@@ -1,12 +1,13 @@
 // Vuetify
 import 'vuetify/styles';
+import colors from 'vuetify/util/colors';
 import { createVuetify, type ThemeDefinition } from 'vuetify';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 
 const vuetifyVariables = {
-  'border-color': '#000000',
+  // 'border-color': '#000000',
   'border-opacity': 0.12,
   'high-emphasis-opacity': 0.87,
   'medium-emphasis-opacity': 0.6,
@@ -18,13 +19,13 @@ const vuetifyVariables = {
   'activated-opacity': 0.12,
   'pressed-opacity': 0.12,
   'dragged-opacity': 0.08,
-  'theme-kbd': '#212529',
-  'theme-on-kbd': '#FFFFFF',
-  'theme-code': '#F5F5F5',
-  'theme-on-code': '#000000',
+  // 'theme-kbd': '#212529',
+  // 'theme-on-kbd': '#FFFFFF',
+  // 'theme-code': '#F5F5F5',
+  // 'theme-on-code': '#000000',
 };
 
-const lightTheme: ThemeDefinition = {
+const light: ThemeDefinition = {
   dark: false,
   colors: {
     primary: '#1867C0',
@@ -51,7 +52,7 @@ const lightTheme: ThemeDefinition = {
   },
 };
 
-const darkTheme: ThemeDefinition = {
+const dark: ThemeDefinition = {
   dark: true,
   colors: {
     primary: '#90CAF9',
@@ -61,15 +62,15 @@ const darkTheme: ThemeDefinition = {
     info: '#29B6F6',
     success: '#66BB6A',
     warning: '#FFA726',
-    background: '#121212',
-    surface: '#121212',
-    'on-primary': '#000000',
-    'on-secondary': '#000000',
-    'on-accent': '#000000',
-    'on-error': '#000000',
-    'on-info': '#000000',
-    'on-success': '#000000',
-    'on-warning': '#000000',
+    background: colors.grey.darken4,
+    surface: colors.grey.darken4,
+    'on-primary': '#FFFFFF',
+    'on-secondary': '#FFFFFF',
+    'on-accent': '#FFFFFF',
+    'on-error': '#FFFFFF',
+    'on-info': '#FFFFFF',
+    'on-success': '#FFFFFF',
+    'on-warning': '#FFFFFF',
     'on-background': '#FFFFFF',
     'on-surface': '#FFFFFF',
   },
@@ -89,10 +90,15 @@ export default createVuetify({
     },
   },
   theme: {
-    defaultTheme: 'lightTheme',
+    defaultTheme: 'light',
     themes: {
-      lightTheme,
-      darkTheme,
+      light,
+      dark,
+    },
+    variations: {
+      colors: ['primary', 'secondary', 'background', 'surface'],
+      lighten: 5,
+      darken: 5,
     },
   },
 });
