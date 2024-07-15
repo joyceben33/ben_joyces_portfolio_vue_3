@@ -17,11 +17,8 @@ export interface IJob {
   endDate: IEmploymentDate;
   show: boolean;
   color?: string;
-  isOrg: boolean;
   scrollTag: string;
   description: string;
   image: string;
-  deployLink: string;
-  repoLink: string;
   technologies: ITechnology[];
 }

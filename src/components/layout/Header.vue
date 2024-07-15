@@ -17,22 +17,10 @@
       <v-list>
         <v-list-item prepend-icon="mdi-account" title="About Me" @click="scrollTo('about-me')"></v-list-item>
 
-        <v-list-item prepend-icon="mdi-domain" title="Experience" @click="scrollTo('experience')"></v-list-item>
-
-        <!-- <v-list-group value="Experience">
-          <template v-slot:activator="{ props }">
-            <v-list-item title="Experience" prepend-icon="mdi-domain" v-bind="props"> </v-list-item>
-          </template>
-          <v-list-item
-            v-for="projectLink in projectLinks"
-            :key="projectLink.name"
-            @click="scrollTo(projectLink.scrollHash)"
-            :title="projectLink.name"
-          >
-          </v-list-item>
-        </v-list-group> -->
-
+        <v-list-item prepend-icon="mdi-briefcase" title="Experience" @click="scrollTo('experience')"></v-list-item>
+        <v-list-item prepend-icon="mdi-school" title="Education" @click="scrollTo('education')"></v-list-item>
         <v-list-item prepend-icon="mdi-account-group" title="Social" @click="scrollTo('social-media')"></v-list-item>
+
         <v-list-group value="Settings">
           <template v-slot:activator="{ props }">
             <v-list-item title="Settings" prepend-icon="mdi-cog" v-bind="props"> </v-list-item>
@@ -81,12 +69,6 @@ function toggleTheme() {
   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
 }
 
-const projectLinks = ref<ProjectLink[]>([
-  { name: 'LASSO', scrollHash: 'lasso' },
-  { name: 'Pacific Arc', scrollHash: 'pacific-arc' },
-  { name: 'Pomona Pipe Products', scrollHash: 'pomona-pipe-products' },
-]);
-
 // Check if element is in the visible viewport
 const isInViewport = (element: HTMLElement) => {
   const rect = element.getBoundingClientRect();
@@ -97,15 +79,7 @@ const isInViewport = (element: HTMLElement) => {
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
-const componentIds = ref([
-  'hero',
-  'about-me',
-  'lasso',
-  'pacific-arc',
-  'pomona-pipe-products',
-  'courtside-gamble',
-  'social-media',
-]);
+const componentIds = ref(['hero', 'about-me', 'experience', 'education', 'social-media']);
 
 const handleScroll = () => {
   componentIds.value.forEach((componentId) => {

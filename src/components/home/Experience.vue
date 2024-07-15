@@ -7,12 +7,15 @@
       <v-timeline justify="center">
         <v-timeline-item
           v-for="(job, i) in jobs"
+          fill-dot
+          dot-color="surface"
           :key="i"
-          :dot-color="i % 2 == 0 ? 'accent' : 'surface'"
           size="x-large"
-          icon="mdi-domain"
           max-width="500px"
         >
+          <template v-slot:icon>
+            <v-avatar :image="job.image"></v-avatar>
+          </template>
           <template v-slot:opposite>
             {{ `${job.startDate.month} ${job.startDate.year} - ${job.endDate.month} ${job.endDate.year}` }}
           </template>
@@ -109,13 +112,11 @@ const jobs = ref<IJob[]>([
       year: '2023',
     },
     show: false,
-    isOrg: true,
     color: 'lasso',
     scrollTag: 'lasso',
     description: `LASSO is a SaaS company, that sells software to companies in the live event industry. In my role here I worked with four other engineers, one UI/UX designer and one Product Owner. I played a role in the development of two different products from the ground up, which involved constant communication between the Product Owner and the engineering team. My responsibilities as a Software Engineer III were database development, api development, and front end development. Some of the individual contributions include creating a private component library utilizing GitHub’s Private NPM Registry, developing a real-time collaborative note editing tool with TalkJs, CRUD api routes that leveraged Zod Schema pattern matching, Casbin for permissions, and Sequelize as our ORM.`,
-    image: 'lasso_screenshot.png',
-    deployLink: 'https://www.lasso.io/',
-    repoLink: 'https://github.com/lassoworkforce',
+    image:
+      'https://media.licdn.com/dms/image/C4E0BAQGVRO5cwgMxCQ/company-logo_200_200/0/1638477474416/lasso_io_logo?e=1729123200&v=beta&t=rJWqIdRq6HMspNQoAqh6i3zfWLZpOl5W6wpj-NEr9Xk',
     technologies: [
       {
         name: 'Typescript',
@@ -200,14 +201,12 @@ const jobs = ref<IJob[]>([
       year: '2022',
     },
     show: false,
-    isOrg: true,
     color: 'primary',
     scrollTag: 'pacific-arc',
     description:
       'Pacific Arc, Inc. is an architectural design tool wholesaler. In my role here I helped build an internal web application that provided tools to help with different workflows within the business. Some of the workflows / features I developed were order fulfillment, order analytics, order logistics, & inventory management. In addition to being an engineer on the product team, I also held responsibilities in their dev-ops department. Some of the dev-ops contributions include AWS Cognito & IAM User Management, setting up a CI/CD pipeline, & migrating Docker Image from Linux to Linux 2.',
-    image: 'pacific_arc_screenshot.png',
-    deployLink: 'https://www.pacificarc.us/',
-    repoLink: 'https://github.com/Pacific-Arc',
+    image:
+      'https://media.licdn.com/dms/image/C4E0BAQF7KSCtgjVBrA/company-logo_200_200/0/1631321686173?e=1729123200&v=beta&t=v4inIvw8byobBWe8ohvwypGFWyNebgGApPn-sS9oc-c',
     technologies: [
       {
         name: 'Typescript',
@@ -287,12 +286,10 @@ const jobs = ref<IJob[]>([
       year: '2021',
     },
     show: false,
-    isOrg: true,
     scrollTag: 'pomona-pipe-products',
     description: `Pomona Pipe Products, Inc. is a civil engineering firm specializing in bridges and environmental construction. The company services a wide range of private businesses, municipalities, and state Departments of Transportation. In my role as a full-stack developer, I helped engineer the company's public-facing web application for marketing their products and services. The stack consists of a NuxtJs(SSR) Web Application, a Serverless Node API, AWS S3 Buckets, AWS CloudFront CDN, a Headless CMS (Prismic.io), Algolia Search Engine, and a server-side rendering web application. In addition I have also worked to improve the company's search engine rankings by optimizing meta data and forming a link-building strategy through social media.`,
-    image: 'pomona_screenshot.png',
-    deployLink: 'https://pomonapipeproducts.com/',
-    repoLink: 'https://github.com/pomona-pipe/',
+    image:
+      'https://media.licdn.com/dms/image/D560BAQEJab6rHuN7rQ/company-logo_200_200/0/1683223925577/pomona_pipe_products_company_logo?e=1729123200&v=beta&t=WEYAl8V_CQcNNQ3mDqYQr7LBLoLog1hwRB1dCVS8xak',
     technologies: [
       {
         name: 'Typescript',
