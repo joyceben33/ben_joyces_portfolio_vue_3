@@ -15,11 +15,12 @@
     </v-app-bar>
     <v-navigation-drawer v-model="mobileDrawer" width="300" fixed temporary>
       <v-list>
+        <v-list-item prepend-icon="mdi-home" title="Home" @click="scrollTo('header')"></v-list-item>
         <v-list-item prepend-icon="mdi-account" title="About Me" @click="scrollTo('about-me')"></v-list-item>
 
         <v-list-item prepend-icon="mdi-briefcase" title="Experience" @click="scrollTo('experience')"></v-list-item>
         <v-list-item prepend-icon="mdi-school" title="Education" @click="scrollTo('education')"></v-list-item>
-        <v-list-item prepend-icon="mdi-account-group" title="Social" @click="scrollTo('social-media')"></v-list-item>
+        <!-- <v-list-item prepend-icon="mdi-account-group" title="Social" @click="scrollTo('social-media')"></v-list-item> -->
 
         <v-list-group value="Settings">
           <template v-slot:activator="{ props }">
@@ -50,12 +51,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import ProfileImage from '@/assets/profile_black_and_white.jpg';
 // https://github.com/vuetifyjs/vuetify/issues/9648
-import { useGoTo, useTheme } from 'vuetify';
-
-type ProjectLink = {
-  name: string;
-  scrollHash: string;
-};
+import { useTheme } from 'vuetify';
 
 const router = useRouter();
 const route = useRoute();
@@ -79,33 +75,35 @@ const isInViewport = (element: HTMLElement) => {
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
-const componentIds = ref(['hero', 'about-me', 'experience', 'education', 'social-media']);
+const componentIds = ref(['header', 'about-me', 'experience', 'education']); //'social-media'
 
-const handleScroll = () => {
+function handleScroll() {
   componentIds.value.forEach((componentId) => {
     const element = document.getElementById(componentId);
     const currentRouteHash = route.hash;
-
+    debugger;
     if (element && isInViewport(element) && currentRouteHash !== `#${componentId}`) {
-      const route = { hash: componentId === 'hero' ? '' : componentId };
+      const route = { hash: componentId === 'header' ? '' : `#${componentId}` };
+      debugger;
       router.replace(route);
+      return;
     }
   });
-};
+}
 
 onMounted(() => {
   darkMode.value = theme.global.name.value === 'dark' ? true : false;
 
-  // window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll);
 });
 
-// onUnmounted(() => {
-//   window.removeEventListener('scroll', handleScroll);
-// })
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
-const goTo = useGoTo({ duration: 1000, offset: -25, easing: 'easeInOutCubic' });
+// const goTo = useGoTo({ duration: 1000, offset: -25, easing: 'easeInOutCubic' });
 
-const toggleMobileDrawer = () => {
+function toggleMobileDrawer() {
   mobileDrawer.value = !mobileDrawer.value;
   // const bodyTag = document.getElementsByTagName('body')[0];
   // if (mobileDrawer.value) {
@@ -115,10 +113,18 @@ const toggleMobileDrawer = () => {
   //   bodyTag.style.removeProperty('overflow');
   //   bodyTag.style.removeProperty('height');
   // }
-};
+}
 
 const scrollTo = (id: string) => {
+  debugger;
+  window.removeEventListener('scroll', handleScroll);
   toggleMobileDrawer();
+  router.push({ hash: id === 'header' ? '' : `#${id}` }).catch(() => {});
+  debugger;
+  setTimeout(() => {
+    window.addEventListener('scroll', handleScroll);
+  }, 2000);
+  debugger;
   // goTo(id);
 };
 </script>

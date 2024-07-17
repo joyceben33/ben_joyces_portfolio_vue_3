@@ -7,9 +7,17 @@
             <!-- Who Are You? -->
             <span id="typer-constant">Describe Yourself?</span>
             <h1>
-              <VueTyper class="d-block d-sm-inline" :text="vueTypeOptions" :repeat="Infinity" :pre-type-delay="1000"
-                :type-delay="100" :pre-erase-delay="2000" :erase-delay="40" erase-style="backspace"
-                caret-animation="smooth" />
+              <VueTyper
+                class="d-block d-sm-inline"
+                :text="vueTypeOptions"
+                :repeat="Infinity"
+                :pre-type-delay="1000"
+                :type-delay="100"
+                :pre-erase-delay="2000"
+                :erase-delay="40"
+                erase-style="backspace"
+                caret-animation="smooth"
+              />
             </h1>
           </v-col>
         </v-row>
@@ -18,9 +26,8 @@
   </v-parallax>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import HeroImage from '@/assets/golden_gate_0002.jpeg'
-
+import { ref } from 'vue';
+import HeroImage from '@/assets/golden_gate_0002.jpeg';
 
 const vueTypeOptions = ref([
   'Software Engineer',
@@ -29,8 +36,7 @@ const vueTypeOptions = ref([
   'Nutrition Enthusiast',
   'Golfer',
   'Gym Advocate',
-])
-
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -44,16 +50,11 @@ const vueTypeOptions = ref([
   padding-top: 64px;
 }
 
-
-
 #typer-constant {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   color: #ffffff;
 }
-
-
-
 
 @media screen and (min-width: 960px) {
   .vue-typer .custom.caret {
