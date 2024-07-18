@@ -81,10 +81,10 @@ function handleScroll() {
   componentIds.value.forEach((componentId) => {
     const element = document.getElementById(componentId);
     const currentRouteHash = route.hash;
-    debugger;
+
     if (element && isInViewport(element) && currentRouteHash !== `#${componentId}`) {
       const route = { hash: componentId === 'header' ? '' : `#${componentId}` };
-      debugger;
+
       router.replace(route);
       return;
     }
@@ -116,15 +116,14 @@ function toggleMobileDrawer() {
 }
 
 const scrollTo = (id: string) => {
-  debugger;
   window.removeEventListener('scroll', handleScroll);
   toggleMobileDrawer();
   router.push({ hash: id === 'header' ? '' : `#${id}` }).catch(() => {});
-  debugger;
+
   setTimeout(() => {
     window.addEventListener('scroll', handleScroll);
   }, 2000);
-  debugger;
+
   // goTo(id);
 };
 </script>

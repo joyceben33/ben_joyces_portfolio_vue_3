@@ -13,7 +13,6 @@ const router = createRouter({
     },
   ],
   scrollBehavior: (to, from, savedPosition) => {
-    debugger;
     // https://stackoverflow.com/questions/54535838/scroll-behaviour-vuejs-not-working-properly
     if (to.hash) {
       const el = window.location.href.split('#')[1];
@@ -32,7 +31,7 @@ const router = createRouter({
     // }
 
     // if (to.hash) {
-    //   debugger;
+    //
     //   return {
     //     selector: to.hash,
     //     offset: { x: 0, y: 75 },
