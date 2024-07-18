@@ -1,0 +1,115 @@
+@import '../fonts/fonts.css';
+@import 'vue3-typer/dist/vue-typer.css';
+@import './variables.scss';
+
+// TODO: Create font-face references to local font files
+
+// Headings
+h1:not(#profile-name) {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+h2 {
+  // font-family: 'Poppins', serif;
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+//NOTE: Allows Button to Glow On Hover
+a,
+button {
+  opacity: 0.7;
+  will-change: opacity;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+    color: rgb(var(--v-theme-on-background));
+  }
+}
+
+.v-container {
+  max-width: 1200px !important;
+}
+
+// Page Sections
+// section {
+//   padding: 1.5rem 0;
+//   &:nth-child(2n + 1) {
+//     background-color: if(
+//       var(--v-theme-dark) == true,
+//       var(--v-theme-background-lighten-2),
+//       var(--v-theme-background-darken-2)
+//     );
+//   }
+//   // &.hero {
+//   //   padding-top: calc(7rem + 96px);
+//   //   color: #ffffff;
+//   // }
+// }
+
+// section {
+//   background-color: rgb(var(--v-theme-background)) !important;
+// }
+
+// @media (min-width: 1904px) {
+//   .v-container {
+
+//   }
+// }
+
+@media screen and (min-width: 960px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+  .vue-typer {
+    font-size: 2.75rem;
+  }
+  section {
+    padding: 7rem 0;
+  }
+}
+
+// NOTE: Docs https://github.com/codespikex/vue3-typer
+/* SCSS */
+.vue-typer {
+  /* Styles for the vue-typer container
+     e.g. font-family, font-size  */
+  line-height: 1;
+  padding-top: 10px;
+  display: inline-block;
+
+  .char {
+    /* Styles for each character
+       e.g. color, background-color */
+    color: rgb(var(--v-theme-accent));
+
+    &.typed {
+      /* Styles specific to typed characters
+         i.e. characters to the left of the caret */
+      color: rgb(var(--v-theme-accent));
+    }
+
+    // &.selected {
+    //   /* Styles specific to selected characters
+    //      i.e. characters to the right of the caret while VueTyper's
+    //           'eraseStyle' is set to a selection-based style */
+    // }
+
+    // &.erased {
+    //   /* Styles specific to erased characters
+    //      i.e. characters to the right of the caret while VueTyper's
+    //           'eraseStyle' is set to a non-selection-based style */
+    // }
+  }
+
+  .caret {
+    height: 3rem !important;
+    background-color: rgb(var(--v-theme-accent)) !important;
+    width: 6px !important;
+    border-radius: 5px !important;
+    margin-left: 5px !important;
+  }
+}
